@@ -1,7 +1,9 @@
-LIBS=-lm -lsfml-graphics -lsfml-window -lsfml-system
-CFLAGS=-c -std=c++11
-OBJS=main.o Ball.o Paddle.o GameObject.o
-EXECUTABLE=simplepaddle
+LIBS       = -lm -lsfml-graphics -lsfml-window -lsfml-system
+CFLAGS     = -c -std=c++11
+OBJS       = main.o Ball.o Paddle.o GameObject.o
+EXECUTABLE = simplepaddle
+
+CC         = g++
 
 all: $(EXECUTABLE)
 
@@ -9,19 +11,19 @@ debug: CFLAGS += -g
 debug: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJS) 
-	g++ $(OBJS) $(LIBS) -o $(EXECUTABLE)
+	$(CC) $(OBJS) $(LIBS) -o $(EXECUTABLE)
 
 main.o: main.cpp
-	g++ main.cpp $(CFLAGS)
+	$(CC) main.cpp $(CFLAGS)
 
 Ball.o: Ball.cpp Ball.h
-	g++ Ball.cpp $(CFLAGS)
+	$(CC) Ball.cpp $(CFLAGS)
 
 Paddle.o: Paddle.cpp Paddle.h
-	g++ Paddle.cpp $(CFLAGS)
+	$(CC) Paddle.cpp $(CFLAGS)
 
 GameObject.o: GameObject.cpp GameObject.h
-	g++ GameObject.cpp $(CFLAGS)
+	$(CC) GameObject.cpp $(CFLAGS)
 
 .PHONY: clean
 clean:
