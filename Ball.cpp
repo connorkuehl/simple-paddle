@@ -65,6 +65,7 @@ void Ball::draw(sf::RenderTarget &target, sf::RenderStates states) const
  */
 bool Ball::checkCollision(const sf::FloatRect &collidable)
 {
+	// TODO: This is a travesty, optimize this function.
 	sf::FloatRect ball_coll = ball_.getGlobalBounds();
 
 	if (!ball_coll.intersects(collidable))
