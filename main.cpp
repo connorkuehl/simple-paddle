@@ -14,6 +14,7 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Window/Keyboard.hpp"
 
+#include <vector>
 
 
 
@@ -39,12 +40,12 @@ int main(int argc, char* argv[])
 	// player 1 score text
 	sf::Text p1_score_text;
 	p1_score_text.setPosition(sf::Vector2f((SCREEN_WIDTH / 3), 25.f));
-	p1_score_text.setScale(2.f, 2.f);
+	p1_score_text.setCharacterSize(72);
 	p1_score_text.setFont(font);
 	// player 2 score text
 	sf::Text p2_score_text;
 	p2_score_text.setPosition(sf::Vector2f((SCREEN_WIDTH / 3) * 1.75, 25.f));
-	p2_score_text.setScale(2.f, 2.f);
+	p2_score_text.setCharacterSize(72);
 	p2_score_text.setFont(font);
 
 	// set up ball and paddles
@@ -71,6 +72,14 @@ int main(int argc, char* argv[])
 		PADDLE_HEIGHT,
 		PADDLE_SPEED
 	);
+
+	std::vector<sf::RectangleShape> net;
+	for (int i = 0; i < SCREEN_HEIGHT; i += 32) {
+		sf::RectangleShape net_block(sf::Vector2f(16, 16));
+		net_block.setPosition((SCREEN_WIDTH / 2) - 8, i);
+		net_block.setFillColor(sf::Color::White);
+		net.push_back(net_block);
+	}
 
 	player1.setKeyBindings(sf::Keyboard::Key::Q, sf::Keyboard::Key::A);
 
@@ -102,7 +111,7 @@ int main(int argc, char* argv[])
 
 		float delta = clock.restart().asSeconds();
 
-		// process score point and reset game!
+		// process score point and reset positions!
 		if (scored) {
 			player1.reset();
 			player2.reset();
@@ -122,6 +131,8 @@ int main(int argc, char* argv[])
 		ball.checkCollision(player2.getCollisionBox());
 		ball.checkCollision(top_bound.getGlobalBounds());
 		ball.checkCollision(bot_bound.getGlobalBounds());
+
+		// check to see if the ball went into a score zone
 		if (ball.checkCollision(p1_zone)) {
 			++p2_score;
 			scored = true;
@@ -132,8 +143,8 @@ int main(int argc, char* argv[])
 			scored = true;
 		}
 
-		// draw
-		window.clear();
+		// draw objects!
+		window.clear(sf::Color::Black);
 		window.draw(ball);
 		window.draw(player1);
 		window.draw(player2);
@@ -141,6 +152,8 @@ int main(int argc, char* argv[])
 		window.draw(p2_score_text);
 		window.draw(top_bound);
 		window.draw(bot_bound);
+		for (auto& block : net)
+			window.draw(block);
 		window.display();
 	}
 
