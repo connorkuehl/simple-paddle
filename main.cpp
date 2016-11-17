@@ -42,11 +42,13 @@ int main(int argc, char* argv[])
 	p1_score_text.setPosition(sf::Vector2f((SCREEN_WIDTH / 3), 25.f));
 	p1_score_text.setCharacterSize(72);
 	p1_score_text.setFont(font);
+	p1_score_text.setString(std::to_string(p1_score));
 	// player 2 score text
 	sf::Text p2_score_text;
 	p2_score_text.setPosition(sf::Vector2f((SCREEN_WIDTH / 3) * 1.75, 25.f));
 	p2_score_text.setCharacterSize(72);
 	p2_score_text.setFont(font);
+	p2_score_text.setString(std::to_string(p2_score));
 
 	// set up ball and paddles
 	Ball ball(
@@ -73,6 +75,7 @@ int main(int argc, char* argv[])
 		PADDLE_SPEED
 	);
 
+	// For drawing the "net" in the center of the game board
 	std::vector<sf::RectangleShape> net;
 	for (int i = 0; i < SCREEN_HEIGHT; i += 32) {
 		sf::RectangleShape net_block(sf::Vector2f(16, 16));
@@ -113,18 +116,18 @@ int main(int argc, char* argv[])
 
 		// process score point and reset positions!
 		if (scored) {
+			scored = false;
 			player1.reset();
 			player2.reset();
 			ball.reset();
-			scored = false;
+			p1_score_text.setString(std::to_string(p1_score));
+			p2_score_text.setString(std::to_string(p2_score));
 		}
 
 		// update objects
 		ball.update(delta);
 		player1.update(delta);
 		player2.update(delta);
-		p1_score_text.setString(std::to_string(p1_score));
-		p2_score_text.setString(std::to_string(p2_score));
 
 		// collision checking
 		ball.checkCollision(player1.getCollisionBox());
