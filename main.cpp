@@ -11,8 +11,8 @@
 #include "Paddle.h"
 #include "Ball.h"
 
-#include "SFML/Graphics.hpp"
-#include "SFML/Window/Keyboard.hpp"
+#include <SFML/Graphics.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
 #include <vector>
 
