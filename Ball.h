@@ -17,7 +17,7 @@
 #include "GameObject.h"
 #include "Paddle.h"
 
-#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Rect.hpp>
 
 
@@ -41,7 +41,7 @@ public:
 
 private:
 	// 2D graphic of the Ball
-	sf::CircleShape ball_;
+	sf::RectangleShape ball_;
 	bool moving_;
 	float xdir_;
 	float ydir_;

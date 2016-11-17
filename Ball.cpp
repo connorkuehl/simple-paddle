@@ -23,7 +23,7 @@
 
 
 Ball::Ball(float x, float y, float width, float height, float speed)
-	: GameObject(x, y, width, height, speed), ball_(width / 2),
+	: GameObject(x, y, width, height, speed), ball_(sf::Vector2f(width, height)),
 	  moving_(true), xdir_(-1), ydir_(0), colliding_(false)
 {
 	// Set visual component's color and location.
@@ -42,6 +42,7 @@ void Ball::update(float delta)
 	if (moving_) {
 		move(xdir_, ydir_, delta);
 		ball_.setPosition(getPosition());
+		ball_.setRotation(ball_.getRotation() + ydir_);
 	}
 }
 
