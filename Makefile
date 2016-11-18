@@ -1,5 +1,5 @@
 LIBS       = -lm -lsfml-graphics -lsfml-window -lsfml-system
-CFLAGS     = -c -std=c++11
+CFLAGS     = -c -std=c++11 -Wall 
 OBJS       = main.o Ball.o Paddle.o GameObject.o
 EXECUTABLE = simplepaddle
 
