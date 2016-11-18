@@ -42,13 +42,13 @@ int main(int argc, char* argv[])
 	p1_score_text.setPosition(sf::Vector2f((SCREEN_WIDTH / 3), 25.f));
 	p1_score_text.setCharacterSize(72);
 	p1_score_text.setFont(font);
-	p1_score_text.setString(std::to_string(p1_score));
+	p1_score_text.setString(std::to_string(0));
 	// player 2 score text
 	sf::Text p2_score_text;
 	p2_score_text.setPosition(sf::Vector2f((SCREEN_WIDTH / 3) * 1.75, 25.f));
 	p2_score_text.setCharacterSize(72);
 	p2_score_text.setFont(font);
-	p2_score_text.setString(std::to_string(p2_score));
+	p2_score_text.setString(std::to_string(0));
 
 	// set up ball and paddles
 	Ball ball(
