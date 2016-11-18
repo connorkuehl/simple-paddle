@@ -23,8 +23,8 @@
 
 
 Ball::Ball(float x, float y, float width, float height, float speed)
-	: GameObject(x, y, width, height, speed), ball_(sf::Vector2f(width, height)),
-	  moving_(true), xdir_(-1), ydir_(0), colliding_(false)
+	: GameObject{x, y, width, height, speed}, ball_{{width, height}},
+	  moving_{true}, xdir_{-1}, ydir_{0}, colliding_{false}
 {
 	// Set visual component's color and location.
 	ball_.setFillColor(sf::Color::White);
@@ -67,7 +67,7 @@ void Ball::draw(sf::RenderTarget &target, sf::RenderStates states) const
 bool Ball::checkCollision(const sf::FloatRect &collidable)
 {
 	// TODO: This is a travesty, optimize this function.
-	sf::FloatRect ball_coll = ball_.getGlobalBounds();
+	auto ball_coll = ball_.getGlobalBounds();
 
 	if (!ball_coll.intersects(collidable))
 		return false;
@@ -80,10 +80,10 @@ bool Ball::checkCollision(const sf::FloatRect &collidable)
 		// adjust trajectory after hit
 
 		// determine the y value of the center of the paddle
-		float center = (collidable.height / 2) + collidable.top;
+		auto center = (collidable.height / 2) + collidable.top;
 		// determine the distance of the ball's y-value from the center of the paddle's y-value
 		// SFML's y-axis is reversed, so I multiplied it by -1 to convert it to regular
-		float distance = (center - ((ball_coll.height / 2) + ball_coll.top)) * -1;
+		auto distance = (center - ((ball_coll.height / 2) + ball_coll.top)) * -1;
 
 		ydir_ = sin(distance / MAX_BALL_ANGLE);
 		xdir_ *= -1;

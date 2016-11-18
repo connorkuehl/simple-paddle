@@ -18,7 +18,7 @@
 
 
 GameObject::GameObject(float x, float y, float width, float height, float speed)
-	: x_(x), y_(y), width_(width), height_(height), speed_(speed), start_pos_(x_, y_)
+	: x_{x}, y_{y}, width_{width}, height_{height}, speed_{speed}, start_pos_{x_, y_}
 {
 }
 
@@ -32,7 +32,8 @@ GameObject::~GameObject()
  */
 sf::Vector2f GameObject::getPosition()
 {
-	return sf::Vector2f(x_, y_);
+	//return sf::Vector2f(x_, y_);
+        return {x_, y_};
 }
 
 /*
