@@ -1,3 +1,6 @@
 *.[oa]
 simplepaddle
 *.exe
+*.cbp
+*.depend
+bin/
