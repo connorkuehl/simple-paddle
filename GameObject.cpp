@@ -18,7 +18,7 @@
 
 
 GameObject::GameObject(float x, float y, float width, float height, float speed)
-	: x_{x}, y_{y}, width_{width}, height_{height}, speed_{speed}, start_pos_{x_, y_}
+: x_{x}, y_{y}, width_{width}, height_{height}, speed_{speed}, start_pos_{x_, y_}
 {
 }
 

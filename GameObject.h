@@ -21,7 +21,7 @@
 
 
 
-class GameObject: public sf::Drawable
+class GameObject : public sf::Drawable
 {
 public:
 	GameObject(float x, float y, float width, float height, float speed);
@@ -48,3 +48,4 @@ private:
 };
 
 #endif
+

@@ -30,7 +30,7 @@
 
 
 
-class Paddle: public GameObject
+class Paddle : public GameObject
 {
 public:
 	Paddle(float x, float y, float width, float height, float speed);
@@ -56,3 +56,4 @@ private:
 };
 
 #endif
+

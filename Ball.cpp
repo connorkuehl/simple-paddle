@@ -23,8 +23,8 @@
 
 
 Ball::Ball(float x, float y, float width, float height, float speed)
-	: GameObject{x, y, width, height, speed}, ball_{{width, height}},
-	  moving_{true}, xdir_{-1}, ydir_{0}, colliding_{false}
+: GameObject{x, y, width, height, speed}, ball_{{width, height}},
+  moving_{true}, xdir_{-1}, ydir_{0}, colliding_{false}
 {
 	// Set visual component's color and location.
 	ball_.setFillColor(sf::Color::White);

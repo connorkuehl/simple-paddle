@@ -26,7 +26,7 @@
 // Used to scale the severity of the reflection angle
 const auto MAX_BALL_ANGLE = 50.0f;
 
-class Ball: public GameObject {
+class Ball : public GameObject {
 public:
 	Ball(float x, float y, float width, float height, float speed);
 
@@ -49,3 +49,4 @@ private:
 };
 
 #endif
+

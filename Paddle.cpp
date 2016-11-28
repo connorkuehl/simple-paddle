@@ -29,8 +29,8 @@
 
 
 Paddle::Paddle(float x, float y, float width, float height, float speed)
-	: GameObject{x, y, width, height, speed}, paddle_({width, height}),
-	  up_{sf::Keyboard::Key::Up}, down_{sf::Keyboard::Key::Down}
+: GameObject{x, y, width, height, speed}, paddle_({width, height}),
+  up_{sf::Keyboard::Key::Up}, down_{sf::Keyboard::Key::Down}
 {
 	// set the visual component's color and position
 	paddle_.setFillColor(sf::Color::White);
