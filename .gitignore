@@ -3,4 +3,9 @@ simplepaddle
 *.exe
 *.cbp
 *.depend
+Debug/
+Release/
 bin/
+*.settings/
+*.project
+*.cproject
