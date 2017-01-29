@@ -1,11 +1,6 @@
 *.[oa]
-simplepaddle
 *.exe
-*.cbp
-*.depend
-Debug/
-Release/
-bin/
-*.settings/
-*.project
-*.cproject
+CMakeCache.txt
+CMakeFiles/*
+cmake_install.cmake
+.*.swp
